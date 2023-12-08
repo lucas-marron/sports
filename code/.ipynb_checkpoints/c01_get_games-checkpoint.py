@@ -2,9 +2,12 @@
 import pandas as pd
 from urllib.error import HTTPError
 
+from pathlib import Path
+import time
+
 # change to filepath for parent directory
 
-fp_root = 'C:Users\jjh96\OneDrive - Yale University\Documents\sports'
+fp_root = Path('c01_get_games.py').parent.absolute().parent.absolute()
 
 dfs = []
 years = range(2000, 2023 + 1)
@@ -25,6 +28,8 @@ for year in years:
     except HTTPError:
     
       time.sleep(5)
+
+  print('.', end = '', flush = True)
   
   # format columns, keep relevant
   
